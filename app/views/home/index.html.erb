@@ -1,2 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+    <% if user_signed_in? %>  
+        <% if current_user.name %>  
+            <h1>Bienvenido <%= current_user.name %> a KariPics</h1>
+            <% else %>
+            <h1>Bienvenido <%= current_user.email%> a KariPics</h1>
+        <% end %>    
+            <p class="subtitulo fs-3">Ve y comenta mis fotos!!!</p>               
+    <% else %>    
+        <h1>Bienvenido a KariPics</h1>    
+        <h5>Comenta mis fotos resgitrándote o logueandote!!!</h5> 
+    <% end %>  
+     <%# <%= render partial: 'publications/index', locals: { publication: @publication } %>  %>
+</div>   

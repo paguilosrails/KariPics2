@@ -1,5 +1,8 @@
 class PublicationsController < ApplicationController
-  before_action :set_publication, only: %i[ show edit update destroy ]
+
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_admin, only: [:update, :edit, :destroy]
+  before_action :set_publication, only: [ :show, :edit, :update, :destroy ]
 
   # GET /publications or /publications.json
   def index
@@ -8,6 +11,8 @@ class PublicationsController < ApplicationController
 
   # GET /publications/1 or /publications/1.json
   def show
+    @publication = Publication.find(params[:id])
+    # @comentarios = @publication.comentarios
   end
 
   # GET /publications/new
@@ -22,6 +27,8 @@ class PublicationsController < ApplicationController
   # POST /publications or /publications.json
   def create
     @publication = Publication.new(publication_params)
+    @publication.user = current_user
+    @publication.images.attach(params[:publication][:images])
 
     respond_to do |format|
       if @publication.save
@@ -65,6 +72,12 @@ class PublicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def publication_params
-      params.require(:publication).permit(:description)
+      params.require(:publication).permit(:description, :user_id,  images_attributes: [:url, :context])
+    end
+
+    def authorize_admin
+      unless current_user.admin?
+        redirect_to home_index_path, notice: "No estás autorizado para hacer esta acción"
+      end
     end
 end

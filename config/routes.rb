@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'comentario/index'
   get 'home/index'
   resources :publications  
+  resources :comentarios
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
