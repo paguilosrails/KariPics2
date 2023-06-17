@@ -31,17 +31,11 @@
     <%= f.hidden_field :role, class: 'form-control' %>    
   </div>
 
-  <div class="container">
-    <%= f.fields_for :images do |image_form| %>
+  <div class="container">    
       <div class="form-group">
-        <%= image_form.label :url, "Agrega tu imagen de perfil" %>
-        <%= image_form.file_field :url, multiple: true, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= image_form.label :context, "Describe donde estabas" %>
-        <%= image_form.text_field :context, class: 'form-control' %>
-      </div>
-    <% end %>
+        <%= f.label :image, "Agrega tu imagen de perfil" %>
+        <%= f.file_field :image, accept: 'image/*', required: true, class: 'form-control' %>
+      </div>      
   </div>
 
   <div class="actions">
