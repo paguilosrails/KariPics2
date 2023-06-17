@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_many :publications 
   has_many :comentarios
   has_many :images, as: :imageable
-  has_one_attached :images
+  # has_one :active_storage_attachments, as: :record, class_name: 'ActiveStorage::Attachment', dependent: :destroy
+  has_one_attached :image
   accepts_nested_attributes_for :images
 
 end
