@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'comentario/index'
+  
   get 'home/index'
-  resources :publications  
-  resources :comentarios
+  resources :publications do
+    resources :comments, only: [:new, :create, :show, :edit, :update, :destroy]    
+  end
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'

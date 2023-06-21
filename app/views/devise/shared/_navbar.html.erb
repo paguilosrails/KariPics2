@@ -10,11 +10,10 @@
          <%= link_to "Home", home_index_path, class: "nav-link" %>
           <% if user_signed_in? %>                 
             <%= link_to "Cerrar sesión",destroy_user_session_path, method: :get,  class: "nav-link" %>
-
+            <%= link_to "Usuarios", edit_user_registration_path,  class: "nav-link" %>
             <% if current_user.admin? %>
               <%= link_to "Publicaciones", new_publication_path, method: :get, class: "nav-link" %>
-              <%= link_to "Usuarios", cancel_user_registration_path,  class: "nav-link" %>
-              <%= link_to "Comentarios", comentarios_path,  method: :get, class: "nav-link" %> 
+              <%= link_to "Usuarios", cancel_user_registration_path,  class: "nav-link" %>              
             <%end %>
                
           <% else %>            

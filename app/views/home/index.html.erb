@@ -5,17 +5,13 @@
             <% else %>
             <h1>Bienvenido <%= current_user.email%> a KariPics</h1>
         <% end %>    
-            <p class="subtitulo fs-3">Ve y comenta mis fotos!!!</p>   
-            
-         
-               
-
-         <%# <%= image_tag pet.user.images[0].url, class: 'rounded-circle w-100' % %>
+            <p class="subtitulo fs-3">Ve y comenta mis fotos!!!</p>         
+                            
 
     <% else %>    
         <h1>Bienvenido a KariPics</h1>    
         <h5>Comenta mis fotos resgitrándote o logueandote!!!</h5> 
     <% end %>  
 
-     <%# <%= render partial: 'publications/index', locals: { publication: @publication } %>  %>
+     <%= render partial: 'publications/index', locals: { publication: @publications }  %>
 </div>   

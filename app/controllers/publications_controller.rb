@@ -1,7 +1,7 @@
 class PublicationsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :authorize_admin, only: [:update, :edit, :destroy]
+  before_action :authorize_admin, only: [:create, :update, :edit, :destroy]
   before_action :set_publication, only: [ :show, :edit, :update, :destroy ]
 
   # GET /publications or /publications.json
@@ -12,7 +12,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1 or /publications/1.json
   def show
     @publication = Publication.find(params[:id])
-    # @comentarios = @publication.comentarios
+    @comments = @publication.comments
   end
 
   # GET /publications/new
@@ -72,7 +72,7 @@ class PublicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def publication_params
-      params.require(:publication).permit(:description, :user_id,  images_attributes: [:url, :context])
+      params.require(:publication).permit(:description, :user_id, :images)
     end
 
     def authorize_admin

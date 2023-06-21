@@ -11,7 +11,7 @@ amazon:
   service: S3
   access_key_id: <%= ENV['aws_access_key_id'] %>
   secret_access_key: <%= ENV['aws_secret_access_key'] %>
-  region: <%= ENV['aws_bucket_region'] %>
+  region: us-east-1
   bucket: <%= ENV['aws_bucket_name'] %>
 
 

@@ -1,61 +1,62 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">  
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <h2>Editar Perfil <%= resource_name.to_s.humanize %></h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :name, autocomplete: "nombre", class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :role %><br />
-    <%= f.hidden_field :role, class: 'form-control' %>
-  </div>
-
-    <div class="container">    
-      <div class="form-group">
-        <%= image_tag current_user.image, class: 'rounded-circle w-50'%>
+ 
+      <div class="form-group mb-2">
+        <%= image_tag current_user.image, class: 'rounded-circle'%><br/><br/>
         <%= f.label :image, "Cambia tu imagen de perfil" %>
-        <%= f.file_field :image, accept: 'image/*', required: true, class: 'form-control' %>
-      </div>      
-  </div>
+        <%= f.file_field :image, accept: 'image/*', required: true, class: 'form-control' %>        
+      </div> 
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+      <div class="field mb-2">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
 
-<h3>Cancel my account</h3>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+      <div class="field mb-2">
+        <%= f.label :contraseña%> <i>(Déja en blanco si no quieres cambiarla)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        <% if @minimum_password_length %>          
+          <em><%= @minimum_password_length %> caracteres mínimo</em>
+        <% end %>
+      </div>
 
-<%= link_to "Back", :back %>
+      <div class="field mb-2">
+        <%= f.label :confirma_contraseña %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+
+      <div class="field mb-2">
+        <%= f.label :contraseña_actual %> <i>(Necesitamos tu contraseña actual para confirmar tus cambios)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-2">
+        <%= f.label :nombre %><br />
+        <%= f.text_field :name, autocomplete: "nombre", class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-2">        
+        <%= f.hidden_field :role, class: 'form-control' %>
+      </div>         
+             
+      
+      <div class="actions">
+        <%= f.submit "Update", class: "btn btn btn-secondary text-white mt-3" %>
+      </div>
+    <% end %><br/>
+
+     <h4>Descontento?</h4>
+            <div><%= button_to "Cancelar mi suscrpción", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn btn-secondary text-white" %></div>
+
+    <%= link_to "Volver", :back %>
+
+ </div>

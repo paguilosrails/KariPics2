@@ -4,6 +4,9 @@ require "active_storage/engine"
 
 require "rails/all"
 
+# require 'figaro/rails/application'
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
