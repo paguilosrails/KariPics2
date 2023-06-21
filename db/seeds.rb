@@ -19,7 +19,7 @@ image_file = URI.open('https://karipic3.s3.amazonaws.com/fotop2.jpg')
 user.image.attach(io: image_file, filename: 'fotop2.jpg')
 user.save
 
-user = User.new(email: "correo@correo.cl", name: "correo1", role: 0 password: "123456", password_confirmation: "123456")
+user = User.new(email: "correo@correo.cl", name: "correo1", role: 0, password: "123456", password_confirmation: "123456")
 image_file = URI.open('https://karipic3.s3.amazonaws.com/fotop1.jpg')
 user.image.attach(io: image_file, filename: 'fotop1.jpg')
 user.save
