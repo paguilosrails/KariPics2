@@ -1,10 +1,18 @@
-<h1>Editing publication</h1>
+<div class="container">
+  <div class="row">
+      <div class="col-3">
+      </div>
+      <div class="col">
+        <h1>Editar Publicación</h1>
 
-<%= render "form", publication: @publication %>
-
-<br>
-
-<div>
-  <%= link_to "Show this publication", @publication %> |
-  <%= link_to "Back to publications", publications_path %>
+        <%= render "form", publication: @publication %><br>
+        <%= link_to "Show this publication", @publication %> |
+        <%= link_to "Back to publications", publications_path %>
+      </div>
+        
+      <div class="col-3">
+      
+          
+      </div>
+  </div>
 </div>

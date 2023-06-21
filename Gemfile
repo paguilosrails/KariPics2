@@ -82,3 +82,5 @@ gem "aws-sdk-s3", "~> 1.124"
 
 
 gem "figaro", "~> 1.2"
+
+gem "open-uri", "~> 0.3.0"

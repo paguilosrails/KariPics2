@@ -153,6 +153,10 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.2-x64-mingw-ucrt)
       racc (~> 1.4)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
     orm_adapter (0.5.0)
     pg (1.5.3-x64-mingw-ucrt)
     public_suffix (5.0.1)
@@ -211,7 +215,10 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stringio (3.0.7)
     thor (1.2.2)
+    time (0.2.2)
+      date
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -221,6 +228,7 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2023.3)
       tzinfo (>= 1.0.0)
+    uri (0.12.1)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -253,6 +261,7 @@ DEPENDENCIES
   figaro (~> 1.2)
   importmap-rails
   jbuilder
+  open-uri (~> 0.3.0)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.5)

@@ -11,14 +11,29 @@
 # seeds.rb
 
 # Crea el usuario
-user1 = User.create(email:"admin@correo.cl", name: "Admin", role: 2, password: "123456", password_confirmation: "123456")
-  # Asocia la imagen de perfil al usuario desde AWS S3
-image1 = URI.open('https://karipic3.s3.amazonaws.com/fotop2.jpg')
-user1.image.attach(io: image1, filename: 'imagen1.jpg')
+# require 'open-uri'
 
-user2 =User.create(email:"correo@correo.cl", name: "correo1", role: 0, password: "123456", password_confirmation: "123456")
-image2 = URI.open('https://karipic3.s3.amazonaws.com/fotop1.jpg')
-user2.image.attach(io: image2, filename: 'imagen2.jpg')
+
+user = User.new(email: "admin@correo.cl", name: "Admin", role: 2, password: "123456", password_confirmation: "123456")
+image_file = URI.open('https://karipic3.s3.amazonaws.com/fotop2.jpg')
+user.image.attach(io: image_file, filename: 'fotop2.jpg')
+user.save
+
+user = User.new(email: "correo@correo.cl", name: "correo1", role: 0 password: "123456", password_confirmation: "123456")
+image_file = URI.open('https://karipic3.s3.amazonaws.com/fotop1.jpg')
+user.image.attach(io: image_file, filename: 'fotop1.jpg')
+user.save
+
+  
+
+# begin
+#   user2 = User.create(email: "correo@correo.cl", name: "correo1", role: 0, password: "123456", password_confirmation: "123456")
+#   image2 = URI.open('https://karipic3.s3.amazonaws.com/fotop1.jpg')
+#   user2.image.attach(io: image2, filename: 'imagen2.jpg')
+# rescue OpenURI::HTTPError => e
+#   puts "Error al obtener la imagen para user2: #{e.message}"
+# end
+
     
   
   

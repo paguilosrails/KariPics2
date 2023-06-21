@@ -12,14 +12,14 @@
   <% end %>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.label :descripción, style: "display: block" %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :images %>
+    <%= form.label :foto %>
     <%= form.file_field :images, multiple: true, class: 'form-control' %>
-  </div>
+  </div><br/>
 
   <div>
     <%= form.submit %>
